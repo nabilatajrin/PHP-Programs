@@ -1,0 +1,85 @@
+<?php
+
+	$myfile = fopen("prepaid_SMS.txt", "w") or die("Unable to open file!");
+
+	
+	//test 1
+	$incoming_sms_1 = "PN+12345678+999";	
+	$parts_1 = explode("+",$incoming_sms_1);
+
+	echo "\n";
+	if (strcasecmp($parts_1[0],"Pn")==0) {
+		$output_1 = "Accepted!";	
+	} elseif (strcasecmp($parts_1[0],"pa")==0) { 
+		$output_1 = "Accepted!";	
+	} elseif (strcasecmp($parts12[0],"pna")==0) {
+		$output_1 = "Accepted!";
+	} elseif (strcasecmp($parts12[0],"p")==0) {
+		$output_1 = "Accepted!";	
+	} else {
+		$output_1 = "Rejected";
+	}
+	fwrite($myfile, "Test 1:\n Script starts\n Incoming SMS: " . $incoming_sms_1 . "\n Is this SMS for Aponjon Prepaid services: " . $output_1 . "\n Script ends\n\n\n");
+
+
+	//test 2
+	$incoming_sms_2 = "SMS";
+	$parts_2 = explode("+",$incoming_sms_2);
+
+	echo "\n";
+	if (strcasecmp($parts_2[0],"Pn")==0) {
+		$output_2 = "Accepted!";	
+	} elseif (strcasecmp($parts_2[0],"pa")==0) { 
+		$output_2 = "Accepted!";
+	} elseif (strcasecmp($parts_2[0],"p")==0) { 
+
+		$output_2 = "Accepted!";	
+	} elseif (strcasecmp($parts_2[0],"pna")==0) {
+		$output_2 = "Accepted!";	
+	} else {
+		$output_2 = "Rejected";
+	}
+
+	fwrite($myfile, "Test 2:\n Script starts\n Incoming SMS: " . $incoming_sms_2 . "\n Is this SMS for Aponjon Prepaid services: " . 		$output_2 . "\n Script ends\n\n\n");
+
+
+
+	//test 3
+	$incoming_sms_3 = "REG+1";
+	$parts_3 = explode("+",$incoming_sms_3);
+
+	echo "\n";
+	if (strcasecmp($parts_3[0],"Pn")==0) {
+		$output_3 = "Accepted!";	
+	} elseif (strcasecmp($parts_3[0],"pa")==0){
+		$output_3 = "Accepted!";	
+	} elseif (strcasecmp($parts_3[0],"pna")==0){ 
+		$output_3 = "Accepted!";
+	} elseif (strcasecmp($parts_3[0],"p")==0){
+		$output_3 = "Accepted!";	
+	} else {
+		$output_3 = "Rejected";
+	}
+	fwrite($myfile, "Test 3:\n Script starts\n Incoming SMS: " . $incoming_sms_3 . "\n Is this SMS for Aponjon Prepaid services: " . 		$output_3 . "\n Script ends\n\n\n");
+
+	//test 4
+	$incoming_sms_4 = "P+SB+140217+R1+123456";
+	$parts_4 = explode("+",$incoming_sms_4);
+
+	echo "\n";
+	if (strcasecmp($parts_4[0],"Pn")==0) {
+		$output_4 = "Accepted!";	
+	} elseif (strcasecmp($parts_4[0],"pa")==0){
+		$output_4 = "Accepted!";	
+	} elseif (strcasecmp($parts_4[0],"pna")==0){ 
+		$output_4 = "Accepted!";
+	} elseif (strcasecmp($parts_4[0],"p")==0){
+		$output_4 = "Accepted!";	
+	} else {
+		$output_4 = "Rejected";
+	}
+	fwrite($myfile, "Test 4:\n Script starts\n Incoming SMS: " . $incoming_sms_4 . "\n Is this SMS for XYZ Prepaid services: " . 		$output_4 . "\n Script ends\n\n\n");
+	
+	fclose($myfile);
+
+?>
