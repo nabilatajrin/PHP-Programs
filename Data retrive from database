@@ -1,0 +1,34 @@
+<?php
+$servername = "111.11.11.1";
+$username = "xyz_service";
+$password = "yrxxx";
+$dbname = "xyz_service";
+$tablename = "lc_prepaid_sms_log";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM $tablename";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+
+//output data
+
+	while($row = $result->fetch_array(MYSQLI_NUM)) {
+		$count = count($row);
+		for($i=0;$i<$count;$i++){
+      echo $row[$i]."\n\n";
+		}
+	echo "\n\n\n\n***************************************\n";	
+}} else {
+	echo "0 results";
+}
+
+$conn->close();
+
+?>
