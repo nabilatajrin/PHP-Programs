@@ -1,0 +1,13 @@
+<?php
+
+	$myfile = fopen("cell_number_identifier.txt", "w") or die("Unable to open file!");
+
+	//test 1
+  
+	$cell_number_1 = "+8801712226886";
+	$parts_1 = explode("",$cell_number_1);
+
+	fwrite($myfile, "# " . $parts_1[0] . "\n # " . $parts_1[1] . "\n # " . $parts_1[2] . "\n # " . $parts_1[3] . "\n #\n\n\n");
+
+	fclose($myfile);
+?>
